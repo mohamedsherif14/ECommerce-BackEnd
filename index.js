@@ -5,6 +5,7 @@ const ErrorHandler = require('./middlewares/errorHandler.middlewaere')
 const userRoute = require('./routes/user.route')
 const authRoute = require('./routes/auth.route')
 const categoryRoute = require('./routes/category.route')
+const subCategoryRoute = require('./routes/subCategory.route')
 
 const connectDB = require('./Confg/db.confg');
 const categoryModel = require('./models/category.model');
@@ -14,6 +15,8 @@ const app = express()
 app.use(express.json())
 app.use('/api/user' , userRoute)
 app.use('/api/auth' ,authRoute)
+app.use('/api/category',categoryRoute)
+app.use('/api/subCategory',subCategoryRoute)
 
 
 app.use(ErrorHandler)

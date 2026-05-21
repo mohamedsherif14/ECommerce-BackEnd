@@ -9,7 +9,7 @@ router.route('/')
     .get(categoryControler.getCategorys)
     .post(authentication,authorized('admin'),categoryControler.addCategory)
 
-router.patch("delet/:id",authentication,authorized('admin'),categoryControler.deleteCategory)
-router.patch("toggleActive/:id",authentication,authorized('admin'),categoryControler.toggleCategoryActive)
+router.patch("/delet/:id",authentication,authorized('admin'),categoryControler.deleteCategory)
+router.patch("/toggleActive/:id",authentication,authorized('admin'),categoryControler.toggleCategoryActive)
 
 module.exports = router

@@ -13,13 +13,13 @@ const addCategory = catchAsync(
     async (req,res) => {
         const {title,isActive,isDeleted} = req.body
         const newCategory = await category.create({title,isActive,isDeleted})
-        return res.status(201).json({massage:"category added" , data:'new category'})
+        return res.status(201).json({massage:"category added" , data:newCategory})
     }
 )
 
 const toggleCategoryActive =catchAsync(
     async (req,res)=>{
-        const {id} = req.parms 
+        const id = req.params.id 
         const myCategory = await category.findById(id);
 
         if(!myCategory){
@@ -33,7 +33,7 @@ const toggleCategoryActive =catchAsync(
 
 const deleteCategory = catchAsync(
     async (req,res)=>{
-        const {id} = req.parms 
+        const id = req.params.id 
         const myCategory = await category.findById(id);
 
         if(!myCategory){
